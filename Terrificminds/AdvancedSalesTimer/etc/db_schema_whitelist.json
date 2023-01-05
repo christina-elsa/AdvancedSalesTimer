@@ -1,0 +1,18 @@
+{
+    "catalogrule_salestimer": {
+        "column": {
+            "rule_id": true,
+            "timer_id": true,
+            "is_enabled": true,
+            "from_time": true,
+            "to_time": true,
+            "description": true,
+            "before_timer": true,
+            "description_before": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CATALOGRULE_SALESTIMER_RULE_ID_CATALOGRULE_RULE_ID": true
+        }
+    }
+}

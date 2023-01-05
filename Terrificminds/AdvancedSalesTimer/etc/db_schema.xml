@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**         
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+        <table name="catalogrule_salestimer" resource="default" engine="innodb" comment="Advances sales count down timer">
+            <column xsi:type="int" name="rule_id" unsigned="true" nullable="false" identity="false"
+                    comment="Rule ID"/>
+            <column xsi:type="int" name="timer_id" unsigned="true" nullable="false" identity="false"
+                    comment="Timer ID"/>      
+            <column xsi:type="smallint" name="is_enabled" unsigned="true" nullable="false" identity="false"
+                    comment="Is Enabled"/>
+            <column xsi:type="datetime" name="from_time" nullable="false" 
+                    comment="From Time"/>
+            <column xsi:type="datetime" name="to_time" nullable="false" 
+                    comment="To Time"/>
+            <column xsi:type="text" name="description"  nullable="false" 
+                    comment="Website ID"/>
+            <column xsi:type="int" name="before_timer" unsigned="true" nullable="true" 
+                    comment="Before Timer"/>
+            <column xsi:type="text" name="description_before" nullable="true" 
+                    comment="Website ID"/>
+            <constraint xsi:type="primary" referenceId="PRIMARY">
+                <column name="timer_id"/>
+            </constraint>
+            <constraint xsi:type="foreign" referenceId="CATALOGRULE_SALESTIMER_RULE_ID_CATALOGRULE_RULE_ID"
+                        table="catalogrule_salestimer" column="rule_id" referenceTable="catalogrule" referenceColumn="rule_id"
+                        onDelete="CASCADE"/>
+        </table>
+</schema>
+
+
